@@ -16,7 +16,16 @@ namespace QLNHANSU
         {
             InitializeComponent();
         }
-
+        void openForm(Type typeForm)
+        {
+            foreach (var frm in MdiChildren)
+            {
+                frm.Activate();
+                return;
+            }
+            Form f = (Form) Activator.CreateInstance(typeForm);
+            f.Show();
+        }
         private void btnNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
@@ -30,6 +39,25 @@ namespace QLNHANSU
         private void btnUngLuong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
+        }
+
+        private void btnTrinhDo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnDanToc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmDanToc frm= new frmDanToc();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void btnTonGiao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmTonGiao frm= new frmTonGiao();   
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }
